@@ -1,2 +1,2 @@
 # docker-kafka-cluster
-Criação de um cluster Kafka com Docker e Docker Compose
+Criação de cluster Kafka com Docker e Docker Compose
