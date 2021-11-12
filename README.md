@@ -74,3 +74,23 @@ curl -X http://localhost:8083/connectors -H "Content-Type: application/json" -d 
         }
    }'
    
+-----
+
+Após connector criado, é possível rodar alguns comandos para verificar se a mensagem chega no arquivo ("file_sink_01.txt")
+
+```
+$ docker exec -it kafka-connect bash
+```
+
+```
+$ cd data
+```
+
+```
+$ cat file_sink_01.txt
+```
+Esse lista as mensagens dentro do arquivo.
+```
+$ tail -f file_sink_01.txt
+```
+Esse comando deixa o arquivo aberto e mostra a mensagem chegando na hora.
