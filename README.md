@@ -50,9 +50,12 @@ $ docker exec -it kafka-connect bash
 Aqui entramos no "servidor" do kafka connect. No anterior a gente estava entrando no broker. Por isso os valores do appuser mudam, pois é outro local. 
 
 Consulta no servidor Kafka Connect
+
+```
 curl -s http://localhost:8083
 curl -s http://localhost:8083/connectors
 curl -s http://localhost:8083/connectors/file_sink_01_status
+```
 
 curl -X http://localhost:8083/connectors -H "Content-Type: application/json" -d '{
     "name": "file_sink_01",
