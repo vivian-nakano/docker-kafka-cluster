@@ -57,6 +57,7 @@ curl -s http://localhost:8083/connectors
 curl -s http://localhost:8083/connectors/file_sink_01_status
 ```
 
+```
 curl -X http://localhost:8083/connectors -H "Content-Type: application/json" -d '{
     "name": "file_sink_01",
     "config": {
@@ -76,7 +77,7 @@ curl -X http://localhost:8083/connectors -H "Content-Type: application/json" -d 
         "errors.tolerance": "all"
         }
    }'
-   
+```   
 -----
 
 Após connector criado, é possível rodar alguns comandos para verificar se a mensagem chega no arquivo ("file_sink_01.txt")
