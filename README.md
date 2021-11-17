@@ -5,7 +5,7 @@ Criação de cluster Kafka com Docker e Docker Compose
 
 Criação do cluster 
 ```
-$ docker compose up
+$ docker-compose up
 ```
 
 Criação de tópico
