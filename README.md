@@ -1,7 +1,12 @@
-# docker-kafka-cluster
-Criação de cluster Kafka com Docker e Docker Compose
+# Cluster Kafka com Docker e Docker Compose
+Este repositório contém informações mais práticas sobre a criação de um cluster Kafka com Docker, producer, consumer, conectores e criação de mensagens personalizadas. 
 
-# Comandos
+## Pré-requisitos
+<hr>
+- Docker + Docker compose
+
+# Passos
+<hr>
 
 Criação do cluster 
 ```
