@@ -105,3 +105,5 @@ Comando que lista mensagens dentro do arquivo especificado uma única vez.
 $ tail -f file_sink_01.txt
 ```
 Comando lista os arquivos e mantém o mesmo aberto, mostrando mensagens que chegam instantaneamente.
+
+<hr>
