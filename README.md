@@ -2,11 +2,9 @@
 Este repositório contém informações mais práticas sobre a criação de um cluster Kafka com Docker, producer, consumer, conectores e criação de mensagens personalizadas. 
 
 ## Pré-requisitos
-<hr>
 - Docker + Docker compose
 
-# Passos
-<hr>
+## Passos
 
 Criação do cluster 
 ```
@@ -19,11 +17,14 @@ Criação do cluster
 ```
 $ docker exec -it broker bash
 ```
+Comando para entrarmos no servidor do broker. Observar que possui com valor único específico de appuser para o broker. 
+
 ```
 $ cd /bin
 ```
 
-Obs: aqui pode executar no usuário principal, não precisa dar o bash na pasta onde está o arquivo YAML (docker-compose)
+Obs: aqui pode executar no usuário principal, não precisa realizar o comando na pasta onde está o arquivo YAML (docker-compose.yaml).
+
 Criação do cluster 
 ```
 $ ./kafka-topics --create --topic nometopico --boostrap-server localhost:9092
@@ -36,7 +37,7 @@ Repetir o comando 'docker exec -it broker bash' e dar um 'cd /bin'
 ```
 $ ./kafka-console-producer --bootstrap-server localhost:9092 --topic nometopico
 ```
-A partir daí já podemos enviar alguma mensagem, porém para ver o conteúdo da mensagem é necessário criar o consumer.
+A partir deste momento já podemos enviar mensagens, porém para ver o conteúdo da mensagem é necessário criar o consumer.
 
 Criação do consumer
 Repetir o comando 'docker exec -it broker bash' e dar um 'cd/bin'
@@ -47,12 +48,13 @@ $ ./kafka-console-consumer --bootstrap-server localhost:9092 --topic nometopico
 A partir de agora é possível enviar mensagens do producer e recebê-las no consumer. Uma dica é utilizar prompts diferentes para analisar o comportamente e melhorar a organização. 
 
 ----------------
-Producer e consumer configurado podemos dar início a criação do Kafka Connector e suas configurações.
+Após producer e consumer estarem configurados podemos dar início na criação do Kafka Connector e suas configurações.
 
 ```
 $ docker exec -it kafka-connect bash
 ```
-Aqui entramos no "servidor" do kafka connect. No anterior a gente estava entrando no broker. Por isso os valores do appuser mudam, pois é outro local. 
+Aqui entramos no "servidor" do Kafka Connect.
+Obs: valores do appuser mudam naturalmente pois consiste em outro local. 
 
 Consulta no servidor Kafka Connect
 
@@ -85,7 +87,7 @@ curl -X http://localhost:8083/connectors -H "Content-Type: application/json" -d 
 ```   
 -----
 
-Após connector criado, é possível rodar alguns comandos para verificar se a mensagem chega no arquivo ("file_sink_01.txt")
+Após conector criado, é possível rodar alguns comandos para verificar se a mensagem chega no arquivo ("file_sink_01.txt")
 
 ```
 $ docker exec -it kafka-connect bash
@@ -98,8 +100,8 @@ $ cd data
 ```
 $ cat file_sink_01.txt
 ```
-Esse lista as mensagens dentro do arquivo.
+Comando que lista mensagens dentro do arquivo especificado uma única vez.
 ```
 $ tail -f file_sink_01.txt
 ```
-Esse comando deixa o arquivo aberto e mostra a mensagem chegando na hora.
+Comando lista os arquivos e mantém o mesmo aberto, mostrando mensagens que chegam instantaneamente.
