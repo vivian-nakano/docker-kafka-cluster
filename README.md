@@ -27,7 +27,7 @@ Obs: aqui pode executar no usuário principal, não precisa realizar o comando n
 
 Criação do cluster 
 ```
-$ ./kafka-topics --create --topic nometopico --boostrap-server localhost:9092
+$ ./kafka-topics --create --topic nometopico --bootstrap-server localhost:9092
 ```
 Podemos trocar o create por describe para analisar o que tem no tópico (partição, réplicas)
 
