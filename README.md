@@ -25,7 +25,7 @@ $ cd /bin
 
 Obs: aqui pode executar no usuário principal, não precisa realizar o comando na pasta onde está o arquivo YAML (docker-compose.yaml).
 
-Criação do cluster 
+Criação do tópico
 ```
 $ ./kafka-topics --create --topic nometopico --bootstrap-server localhost:9092
 ```
