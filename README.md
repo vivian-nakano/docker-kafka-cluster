@@ -117,7 +117,7 @@ echo '{{"name":"teste"}}'|kafkacat -b broker:29092 -t topico-vivi -P -H applicat
 
 Consumer: monitorar os valores desejados
 ```
-kafkacat -b kafka-broker:9092 -t my_topic_name -C \
+kafkacat -b broker:29092 -t topico-vivi -C \
   -f '\nKey (%K bytes): %k
   Value (%S bytes): %s
   Timestamp: %T
@@ -128,5 +128,5 @@ kafkacat -b kafka-broker:9092 -t my_topic_name -C \
 
 Consumer: monitorar apenas o valor de header
 ```
-$ kafkacat -b mybroker -C -t mytopic -f 'Headers: %h: Message value: %s\n'
+$ kafkacat -b broker:29092 -C -t topico-vivi -f 'Headers: %h: Message value: %s\n'
 ```
