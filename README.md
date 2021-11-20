@@ -107,3 +107,26 @@ $ tail -f file_sink_01.txt
 Comando lista os arquivos e mantém o mesmo aberto, mostrando mensagens que chegam instantaneamente.
 
 <hr>
+
+Kafkacat - monitorar valores da mensagem (header, key, value)
+
+Producer: criar valor e header da mensagem
+```
+echo '{{"name":"teste"}}'|kafkacat -b broker:29092 -t topico-vivi -P -H applicationId -H type
+```
+
+Consumer: monitorar os valores desejados
+```
+kafkacat -b kafka-broker:9092 -t my_topic_name -C \
+  -f '\nKey (%K bytes): %k
+  Value (%S bytes): %s
+  Timestamp: %T
+  Partition: %p
+  Offset: %o
+  Headers: %h\n'
+```
+
+Consumer: monitorar apenas o valor de header
+```
+$ kafkacat -b mybroker -C -t mytopic -f 'Headers: %h: Message value: %s\n'
+```
